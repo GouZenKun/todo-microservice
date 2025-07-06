@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package todo.v1;
+option go_package = "todo_module/internal/controller/gen/proto/v1;todov1";
+
+message Todo {
+  string todo_id = 1;
+  string title = 2;
+  string description = 3;
+  uint64 status_id = 4;
+  int64 due_date = 5;
+}
+
+message AddTodoRequest {
+    Todo todo = 1;
+}
+
+message AddTodoResponse {
+    string todo_id = 1;
+}
+
+message GetTodoRequest {
+    string todo_id = 1;
+}
+
+message GetTodoResponse {
+    Todo todo = 1;
+}
+
+message EditTodoRequest {
+    Todo todo = 1;
+}
+
+message EditTodoResponse {
+    
+}
+
+message RemoveTodoRequest {
+    string todo_id = 1;
+}
+
+message RemoveTodoResponse {
+    
+}
+
+message GetAllTodosRequest {
+    uint64 filter_by_status_id = 1;
+    bool is_sort_by_due = 2;
+}
+
+message GetAllTodosResponse {
+    Todo todo = 1;
+}
+
+service TodoService {
+    rpc AddTodo (AddTodoRequest) returns (AddTodoResponse);
+    rpc GetTodo (GetTodoRequest) returns (GetTodoResponse);
+    rpc EditTodo (EditTodoRequest) returns (EditTodoResponse);
+    rpc RemoveTodo (RemoveTodoRequest) returns (RemoveTodoResponse);
+    rpc GetAllTodos (GetAllTodosRequest) returns (stream GetAllTodosResponse);
+}

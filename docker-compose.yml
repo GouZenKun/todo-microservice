@@ -1,0 +1,28 @@
+services:
+  api:
+    container_name: api
+    ports:
+      - 3000:3000
+      # - 443:443
+    build:
+      dockerfile: Dockerfile
+    volumes:
+      - ./cmd/server/main.go:/api/main.go
+      - ./internal/:/api/internal/
+      # - ./ssl:/etc/ssl
+    depends_on:
+      - mysql
+    restart: always
+  mysql:
+    image: mysql:8.2.0
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=db_todo
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pass
+    volumes:
+      - ./docker/init_db.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./docker/my.cnf:/etc/mysql/conf.d/my.cnf
+    restart: always
