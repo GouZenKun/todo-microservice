@@ -33,9 +33,9 @@ golangでTodoマイクロサービスを実装するプロジェクト
 - 業界の人材は既に馴染んでいるのでメンテナンス面は悪くない
 
 ## 完成度
-## バグ
+### バグ
 - sqlmodeがno_zero_in_date使われてtodosテーブルのcreate_at, update_atがバグる
-## 未完成
+### 未完成
 - SSL
 - Database migrations
 - CLI
