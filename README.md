@@ -38,5 +38,5 @@ golangでTodoマイクロサービスを実装するプロジェクト
 ### 未完成
 - SSL
 - Database migrations
-- CLI
+- CIパイプライン
 - など
