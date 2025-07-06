@@ -31,3 +31,12 @@ golangでTodoマイクロサービスを実装するプロジェクト
 - マイクロサービスの機能は決められてClean Architectureまでやる必要ない
 - コードジェネレーターでほぼ構造分けられるのでちょうど疎結合がいい
 - 業界の人材は既に馴染んでいるのでメンテナンス面は悪くない
+
+## 完成度
+## バグ
+- sqlmodeがno_zero_in_date使われてtodosテーブルのcreate_at, update_atがバグる
+## 未完成
+- SSL
+- Database migrations
+- CLI
+- など
